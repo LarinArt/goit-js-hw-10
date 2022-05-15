@@ -2,17 +2,11 @@ import './css/styles.css';
 import {Notify} from 'notiflix';
 import debounce from 'lodash.debounce';
 
-import {fetchCountries} from './js/fetchCountries.js';
+import { refs, DEBOUNCE_DELAY } from './js/constants';
+import {fetchCountries} from './js/fetchCountries';
 import countryListTpl from './template/country-list.hbs';
 import countryCardTpl from './template/country-card.hbs';
 
-const DEBOUNCE_DELAY = 300;
-const refs = {
-    input: document.querySelector('#search-box'),
-    countryList: document.querySelector('.country-list'),
-    countryInfo: document.querySelector('.country-info'),
-    clickOnCountryTitle: document.querySelector('.country-title')
-};
 
 const clearMarkup = () => {
     refs.countryInfo.innerHTML = '';
